@@ -7,10 +7,10 @@ import "../styles/Header.css";
 import { useStateValue } from "../StateProvider";
 
 function Header() {
-  const [{basket}, dispatch] = useStateValue();
+  const [{ basket }, dispatch] = useStateValue();
   return (
     <div className="header">
-      <Link to={"/"} style={{textDecoration: "none"}}>
+      <Link to={"/"} style={{ textDecoration: "none" }}>
         <div className="header__logo">
           <StorefrontIcon className="header__logoImage" fontSize="large" />
           <h2 className="header__logoTitle">eCoShop</h2>
@@ -26,15 +26,18 @@ function Header() {
       </div>
 
       <div className="header__nav">
-        <div className="nav__item">
-          <span className="nav__itemOne">Hello Guest</span>
-          <span className="nav__itemTwo">SignIn</span>
-        </div>
+        <Link to={"/login"} style={{textDecoration: "none"}}>
+          <div className="nav__item">
+            <span className="nav__itemOne">Hello Guest</span>
+            <span className="nav__itemTwo">SignIn</span>
+          </div>
+        </Link>
+
         <div className="nav__item">
           <span className="nav__itemOne">Your</span>
           <span className="nav__itemTwo">Shop</span>
         </div>
-        <Link to={"/checkout"} style={{textDecoration: "none"}}>
+        <Link to={"/checkout"} style={{ textDecoration: "none" }}>
           <div className="nav__itemBasket">
             <ShoppingBasketIcon />
             <span className="nav__itemTwo nav__itemCount">{basket.length}</span>
